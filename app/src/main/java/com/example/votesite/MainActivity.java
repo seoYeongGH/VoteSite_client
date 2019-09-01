@@ -14,6 +14,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    public void onBtnLoginClicked(View view){
+        Intent intent = new Intent(this,LoginPage.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+
+        startActivity(intent);
+    }
+
     public void onBtnJoinClicked(View view){
         Intent intent = new Intent(this,JoinPage.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
