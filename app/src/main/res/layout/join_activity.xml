@@ -191,24 +191,27 @@
         <Button
             android:id="@+id/btnJoinYes"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="30dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="15dp"
             android:layout_weight="1"
+            android:background="@drawable/button_layout"
             android:onClick="onBtnJoinClicked"
             android:text="Join"
-            android:textColor="@color/colorPrimaryDark" />
+            android:textColor="#FFFFFF" />
 
         <Button
             android:id="@+id/btnJoinCancel"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
             android:layout_marginTop="30dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="30dp"
             android:layout_weight="1"
-            android:text="Cancel" />
+            android:background="@drawable/button_layout"
+            android:text="Cancel"
+            android:textColor="#FFFFFF" />
 
     </LinearLayout>
 </LinearLayout>
