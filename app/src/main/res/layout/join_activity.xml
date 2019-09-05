@@ -48,7 +48,7 @@
             android:textSize="19sp" />
 
         <EditText
-            android:id="@+id/iptFindId1"
+            android:id="@+id/iptName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="25dp"
@@ -80,7 +80,7 @@
             android:textSize="19sp" />
 
         <EditText
-            android:id="@+id/iptTxtId"
+            android:id="@+id/iptId"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="25dp"
@@ -110,7 +110,7 @@
             android:textSize="19sp" />
 
         <EditText
-            android:id="@+id/iptTxtPw"
+            android:id="@+id/iptPw"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="25dp"
@@ -170,7 +170,7 @@
             android:textSize="19sp" />
 
         <EditText
-            android:id="@+id/iptTxtEmail"
+            android:id="@+id/iptEmail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="25dp"
