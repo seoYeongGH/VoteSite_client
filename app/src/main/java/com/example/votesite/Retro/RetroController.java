@@ -15,7 +15,7 @@ public class RetroController {
         return;
     }
 
-    private Retrofit getRetrofit(){
+    public Retrofit getRetrofit(){
         return retrofit;
     }
 
