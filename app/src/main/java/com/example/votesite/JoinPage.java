@@ -93,7 +93,7 @@ public class JoinPage extends AppCompatActivity {
 
         switch(code){
             case ERR_NULL: msg = "모든 항목을 입력해야합니다."; break;
-            case DUP_ID: msg = "이미 존재하는 아이디 입니다."; break;
+            case DUP_ID: msg = "이미 존재rr하는 아이디 입니다."; break;
             case DUP_USER: msg = "이미 가입되어있는 회원입니다."; break;
             case DIFF_PW: msg = "비밀번호가 일치하지 않습니다."; break;
             default: msg = "ERR!!"; break;
