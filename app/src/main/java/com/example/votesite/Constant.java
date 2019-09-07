@@ -7,5 +7,5 @@ public class Constant {
     //join
     public static final int DUP_ID = 2;
     public static final int DUP_USER = 3;
-    public static final int DIFF_PW = 4;
+    public static final int ERR_CHK_ID = 4;
 }
