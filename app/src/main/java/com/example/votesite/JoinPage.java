@@ -12,7 +12,9 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.votesite.Retro.RetroController;
 import com.example.votesite.Retro.UserService;
@@ -74,12 +76,20 @@ public class JoinPage extends AppCompatActivity {
         String id = iptId.getText().toString();
         int len = id.length();
 
+        if(len == 0){
+            warnId.setText("ID를 입력하세요.");
+            warnId.setTextSize(15);
+            strChkId = "";
+
+            return;
+        }
         if(chkRange(id,len)){
             chkId = true;
             strChkId = id;
             warnId.setTextSize(0);
         }
         else{
+            warnId.setText("ID는 영문자와 숫자만 사용가능합니다.");
             warnId.setTextSize(15);
             strChkId = "";
             chkId = false;
@@ -87,9 +97,11 @@ public class JoinPage extends AppCompatActivity {
 
         if(chkId){
             HashMap hashMap = new HashMap();
+            hashMap.put("doing","chkId");
             hashMap.put("id",id);
 
-            doCommunication("chkId",hashMap);
+
+            doCommunication(hashMap);
         }
 
     }
@@ -119,7 +131,7 @@ public class JoinPage extends AppCompatActivity {
             hashMap.put("name",name);
             hashMap.put("email",email);
 
-            doCommunication("join",hashMap);
+            doCommunication(hashMap);
         }
         return;
     }
@@ -156,11 +168,12 @@ public class JoinPage extends AppCompatActivity {
         return dialog;
     }
 
-    private void doCommunication(String doing, HashMap hashMap){
+    private void doCommunication( HashMap hashMap){
         Retrofit retrofit = RetroController.getInstance().getRetrofit();
         UserService userService = retrofit.create(UserService.class);
 
-        final String strDoing = doing;
+        final String strDoing = (String)hashMap.get("doing");
+
         Call<Integer> doService = userService.doService(hashMap);
         doService.enqueue(new Callback<Integer>() {
             @Override
@@ -185,11 +198,12 @@ public class JoinPage extends AppCompatActivity {
 
     private void canJoin(int code){
         switch(code){
-            case SUCCESS: Snackbar.make(findViewById(R.id.joinLayout),"JOIN SUCCESS!!", Snackbar.LENGTH_LONG).show();
+            case SUCCESS: Toast.makeText(this, "JOIN SUCCESS!!", Toast.LENGTH_LONG).show();
                           Intent intent = new Intent(this, LoginPage.class);
                           intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                           startActivity(intent);
                           finish(); break;
+            case DUP_ID: code = ERR_CHK_ID;
             case DUP_USER: showAlert(code); break;
             default: showAlert(code); break;
         }
